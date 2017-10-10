@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Spring4.x的实践（配置文件篇）"
+title:  pom.xml配置
 date:   2017-10-08 19:00:00
 categories: Java Spring
-tags: Java Spring
+tags: Java Spring Spring4.x的实践
 ---
 
 **目标**:Spring构建论坛登录模块
