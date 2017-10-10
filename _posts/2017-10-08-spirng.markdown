@@ -1,22 +1,22 @@
 ---
 layout: post
-title:  "阅读《Spring4.x企业应用开发实战》的实践（配置Maven配置文件篇）"
+title:  "Spring4.x的实践（配置文件篇）"
 date:   2017-10-08 19:00:00
 categories: Java Spring
 tags: Java Spring
 ---
-阅读《Spring4.x企业应用开发实战》的实践————配置Maven配置文件篇
 
+**目标**:Spring构建论坛登录模块
+**功能**：
+* 验证登录信息(用户名，密码)
+* 登录成功 跳转欢迎界面，用户积分增加
+* 登录失败 显示“用户名密码错误”
 
-目标:Spring构建论坛登录模块
-功能：
-验证登录信息(用户名，密码)
-登录成功 跳转欢迎界面，用户积分增加
-登录失败 显示“用户名密码错误”
+## 开发环境
+**IDE**：IDEA
+**构建工具**：maven
 
-IDE：IDEA
-构建工具：maven
-pom.xml配置信息：
+## pom.xml配置信息：
 ```xml
         <file.encoding>UTF-8</file.encoding>
         <spring.version>4.2.1.RELEASE</spring.version>
@@ -30,7 +30,7 @@ pom.xml配置信息：
         <slf4j.version>1.7.5</slf4j.version>
         <testng.version>6.8.7</testng.version>
 ```
-#1.基于maven的构建
+## 1.基于maven的构建
 *File->
 *New->
 *Project->
@@ -38,33 +38,38 @@ pom.xml配置信息：
 *Next->
 *填写 GroupId、ArtifactId、Version、三项
 
-###名词解释：
+## 名词解释：
+
 **GroupId**和**ArtifactId**：
->**GroupId**和**ArtifactId**被统称为“坐标”是为了保证项目唯一性而提出的，如果你要把你项目弄到maven本地仓库去，你想要找到你的项目就必须根据这两个id去查找。
+> **GroupId**和**ArtifactId**被统称为“坐标”是为了保证项目唯一性而提出的，如果你要把你项目弄到maven本地仓库去，你想要找到你的项目就必须根据这两个id去查找。
 **GroupId**一般分为多个段,一般来说第一段为域，第二段为公司名称。域又分为org、com、cn等等许多，其中org为非营利组织，com为商业组织。举个apache公司的tomcat项目例子：这个项目的**GroupId**是org.apache，它的域是org（因为tomcat是非营利项目），公司名称是apache，**ArtifactId**是tomcat。所以我们在公司看到的代码多为com打头，而网上开源项目多为org等打头
 而**ArtifactId**则一般为项目的具体名称，如“网上商城”可以叫做eShop。依照这个设置，公司的网上商城项目为，com.company.eShop，如果有个priceDao的类，它的全路径就是com.company.eShop.dao.priceDao
 **Version**:项目
 
-#2、pom.xml配置
->Maven是一个强大的项目构建工具，解决项目中包的依赖问题。关于各种依赖的类型，我推荐大家去看[一篇文章](http://www.cnblogs.com/xrq730/p/5530069.html)，讲得很清楚
+## 2、pom.xml配置
+> Maven是一个强大的项目构建工具，解决项目中包的依赖问题。关于各种依赖的类型，我推荐大家去看[一篇文章](http://www.cnblogs.com/xrq730/p/5530069.html)，讲得很清楚
 
 
->由于本职工作是前端，npm用的比较多，Maven给我的感觉就是和npm一样，你不需要去各种官网上一个一个的下载包，你只需要在配置文件中写清楚(对应package.json),然后启动安装，Maven会帮你去找到下载地址(当然，会比较慢，和npm下载一样，如果嫌慢，请换源)。
+> 由于本职工作是前端，npm用的比较多，Maven给我的感觉就是和npm一样，你不需要去各种官网上一个一个的下载包，你只需要在配置文件中写清楚(对应package.json),然后启动安装，Maven会帮你去找到下载地址(当然，会比较慢，和npm下载一样，如果嫌慢，请换源)。
 
->Maven的配置文件主要有两个，一个是setting.xml，一个是pom.xml，其中setting.xml，就像是一个common的配置，用部分文件中说的一样，就是一个公司整体的一个依赖描述，而pom.xml定制性比较强，专门针对于你自己的项目。
+> Maven的配置文件主要有两个，一个是setting.xml，一个是pom.xml，其中setting.xml，就像是一个common的配置，用部分文件中说的一样，就是一个公司整体的一个依赖描述，而pom.xml定制性比较强，专门针对于你自己的项目。
 
 **pom.xml配置详解**：
 
-- step1:既然是xml，xml头一般来说是必不可少的，描述版本，描述xml的编码
+- step1:
+
+既然是xml，xml头一般来说是必不可少的，描述版本，描述xml的编码。
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 ```
-- step2:全部的项目描述信息 
+- step2:全部的项目描述信息 。
 ```html
-包裹在一个<project></project>标签内
+包裹在一个<project></project>标签内。
 ```
 
-- step3:项目描述，主要介绍你的项目名称、版本等等信息，让Maven准确找到你的项目
+- step3:项目描述。
+
+主要介绍你的项目名称、版本等等信息，让Maven准确找到你的项目。
 ```xml
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.smart</groupId>
@@ -72,11 +77,13 @@ pom.xml配置信息：
     <version>1.0</version>
     <description>spring实战</description>  
 ```
->**modelVersion**标签表示模型版本。maven2.0必须是这样写，现在是maven2唯一支持的版本。
+> **modelVersion**标签表示模型版本。maven2.0必须是这样写，现在是maven2唯一支持的版本。
 除了**description**标签，上面其他标签，在你生成完项目之后，pom.xml里面就会自动生成
 另外，还包括**packaging**标签，表示打包类型比如war、jar、pom等等(现在还不清楚打成不同的包之后有什么区别，等以后设置到打包的时候再来开个专题说说，今天线说配置文件)
 
-- step4:依赖关系配置，依赖关系是pom.xml的主要作用，也是Maven强大的地方。
+- step4:依赖关系配置。
+
+依赖关系是pom.xml的主要作用，也是Maven强大的地方。
 sample：
 ```xml
     <dependencies>
@@ -98,7 +105,7 @@ sample：
   <properties>标签下的每一个dependency表示一个jar包。
   ```
   
->当然你也可以把别人发布到远程的依赖导入到你的项目中来，只需要GroupId、ArtifactId、Version、三项即可，具体参见上面一篇博客。
+> 当然你也可以把别人发布到远程的依赖导入到你的项目中来，只需要GroupId、ArtifactId、Version、三项即可，具体参见上面一篇博客。
 
 - step5：为项目定义一些常量
 sample：
@@ -117,7 +124,7 @@ sample：
         <testng.version>6.8.7</testng.version>
     </properties>
     ```
-为pom定义一些常量，在pom中的其它地方可以直接引用 使用方式 如下：${file.encoding}
+为pom定义一些常量，在pom中的其它地方可以直接引用 使用方式 如下：**${file.encoding}**
 
 - step6：构建配置
 sample:
@@ -142,8 +149,8 @@ sample:
             </plugin>
     </build>
     ```
->目前接触到的构建配置还只是引入一些插件，比如本项目中应用到的jetty插件。
+> 目前接触到的构建配置还只是引入一些插件，比如本项目中应用到的jetty插件。
 我也看了自己在公司目前开发的以前项目的后台的build配置，好像也基本都是插件，所以目前就先不仔细看了，看了没应用到也是个半罐子，边学边用边总结，才是效率之道嘛。
 
 
->Maven构建工具，针对单一工程的配置文件pom.xml，到目前位置，我使用的已经全部写在了上面，后面如果有用到，也会继续增加
+> Maven构建工具，针对单一工程的配置文件pom.xml，到目前位置，我使用的已经全部写在了上面，后面如果有用到，也会继续增加
