@@ -41,14 +41,15 @@ tags: Java Spring Spring4.x的实践
 ## 名词解释：
 
 **GroupId**和**ArtifactId**：
+
 **GroupId**和**ArtifactId**被统称为“坐标”是为了保证项目唯一性而提出的，如果你要把你项目弄到maven本地仓库去，你想要找到你的项目就必须根据这两个id去查找。
 **GroupId**一般分为多个段,一般来说第一段为域，第二段为公司名称。域又分为org、com、cn等等许多，其中org为非营利组织，com为商业组织。举个apache公司的tomcat项目例子：这个项目的**GroupId**是org.apache，它的域是org（因为tomcat是非营利项目），公司名称是apache，**ArtifactId**是tomcat。所以我们在公司看到的代码多为com打头，而网上开源项目多为org等打头
 而**ArtifactId**则一般为项目的具体名称，如“网上商城”可以叫做eShop。依照这个设置，公司的网上商城项目为，com.company.eShop，如果有个priceDao的类，它的全路径就是com.company.eShop.dao.priceDao
-**Version**:项目
+
+**Version**:项目版本
 
 ## 2、pom.xml配置
 Maven是一个强大的项目构建工具，解决项目中包的依赖问题。关于各种依赖的类型，我推荐大家去看[一篇文章](http://www.cnblogs.com/xrq730/p/5530069.html)，讲得很清楚
-
 
 由于本职工作是前端，npm用的比较多，Maven给我的感觉就是和npm一样，你不需要去各种官网上一个一个的下载包，你只需要在配置文件中写清楚(对应package.json),然后启动安装，Maven会帮你去找到下载地址(当然，会比较慢，和npm下载一样，如果嫌慢，请换源)。
 
