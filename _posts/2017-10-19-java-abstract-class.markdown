@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Vue更新数组视图"
-date:   2017-10-12 22:35:00
-categories: 前端 JavaScript
-tags: Vue 前端 v-for
+title:  "java的抽象类和接口"
+date:   2017-10-19 22:41:00
+categories: Java
+tags: Java
 ---
 
 ## 问题描述：
