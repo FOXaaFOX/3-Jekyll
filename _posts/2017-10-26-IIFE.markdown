@@ -93,10 +93,8 @@ JS中函数作用域是指：一个函数作为一个作用域，内层函数可
 
 一个变量提升的对比例子：
 
-![image](http://od8kqa01w.bkt.clouddn.com/￼allscope2.png)
-
-以上代码相当于
-![image](http://od8kqa01w.bkt.clouddn.com/￼allscope3.png)
+上面的代码相当于
+![image](http://od8kqa01w.bkt.clouddn.com/￼variable-scope3.png)
 
 如图例子所示：如果在函数作用域中，不对变量声明，仅仅是使用，则不会出现变量声明的覆盖。
 
