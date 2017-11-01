@@ -1,0 +1,16 @@
+promise学习笔记：
+
+promise是一个构造函数，
+
+
+
+JS中的this 指向当前运行对象
+所以setTimeout回调函数中的this全部指向window 也就是最外层。（不包括传入的参数）
+var aaa = function(){
+  alert("this")
+}
+setTimeout(this.aaa,500)
+
+此时的setTimeout的参数this.aaa中的this，指向外层对象
+
+箭头函数中的this

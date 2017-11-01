@@ -1,0 +1,16 @@
+1.gulp的使用 首先在package.json里面 写入需要安装的依赖库
+2.npm install
+3.然后在gulpfile.js里面require库
+
+
+使用gulp，仅需知道4个API即可：
+gulp.task(),
+gulp.src(),
+gulp.dest(),
+gulp.watch()
+
+
+gulp.src():用来获取流的,gulp.src(globs[, options])
+
+Gulp内部使用了node-glob模块来实现其文件匹配功能
+
