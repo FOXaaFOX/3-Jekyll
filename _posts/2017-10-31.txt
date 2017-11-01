@@ -1,6 +1,7 @@
-1.gulp的使用 首先在package.json里面 写入需要安装的依赖库
+﻿1.gulp的使用 首先在package.json里面 写入需要安装的依赖库
 2.npm install
 3.然后在gulpfile.js里面require库
+
 
 
 使用gulp，仅需知道4个API即可：

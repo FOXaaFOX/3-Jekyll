@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "JS中立即执行函数"
-date:   2017-10-19 22:41:00
+date:   2017-10-26 22:41:00
 categories:前端
-tags: Java
+tags: JS基础 前端
 ---
 ## 从变量作用域开始谈JS中立即执行函数
 
