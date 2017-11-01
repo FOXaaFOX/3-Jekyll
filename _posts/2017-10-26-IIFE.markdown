@@ -38,11 +38,11 @@ ps：在JS中允许不定义变量直接对变量进行赋值，而这个变量�
 
 2.1 JS中的块级区域
 
-在JS中和传统的Java和C++的块级作用域不同，JS中是函数作用域，从ES6中开始有了let 和 const以后，块级作用域开始引入到JS中。
+在JS中和传统的Java和C++的块级作用域不同，JS中是函数作用域。
 
 举个栗子：
 
-![image](http://od8kqa01w.bkt.clouddn.com/var1.png)
+![image](http://od8kqa01w.bkt.clouddn.com/var.png)
 
 上图中，scope变量最后输出为"local",说明在块级中，对于scope这个全局变量进行了替换，也就是说
 
@@ -54,7 +54,12 @@ ps：在JS中允许不定义变量直接对变量进行赋值，而这个变量�
 
 外部可以访问到块级中的变量，说明块级作用域没有起作用。
 
-2.2 JS中的函数作用域：
+
+但是从ES6中开始有了let 和 const以后，块级作用域（也就是我们通常说的花括号{}）开始引入到JS中：
+![image](http://od8kqa01w.bkt.clouddn.com/let.png)
+上面例子中，let声明的scope变量只在块级作用域内有效，所以最后输出的还是全局作用域的scope
+
+2.2 JS中的变量提升问题：
 
 JS中函数作用域是指：一个函数作为一个作用域，内层函数可以访问外层函数的变量，外层无法访问内层函数的变量。
 
@@ -63,11 +68,11 @@ JS中函数作用域是指：一个函数作为一个作用域，内层函数可
 在JS中使用var定于的变量，没有块级作用域，但是有函数作用域；
 
 在函数作用域中，内层函数可以访问外层函数的变量，如下图。
-
+![image](http://od8kqa01w.bkt.clouddn.com/variable-scope1.png)
 
 
 在函数内会有变量提升的效果，也就是说，在函数内声明的变量，这个声明会自动提升到函数的最上面，提升之后的效果，类似于把声明放到函数作用域最前面；
-
+![image](http://od8kqa01w.bkt.clouddn.com/variable-scope2.png)
 
 
 
@@ -90,6 +95,8 @@ JS中函数作用域是指：一个函数作为一个作用域，内层函数可
 
 ![image](http://od8kqa01w.bkt.clouddn.com/￼allscope2.png)
 
+以上代码相当于
+![image](http://od8kqa01w.bkt.clouddn.com/￼allscope3.png)
 
 如图例子所示：如果在函数作用域中，不对变量声明，仅仅是使用，则不会出现变量声明的覆盖。
 
