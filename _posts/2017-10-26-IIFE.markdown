@@ -22,7 +22,7 @@ tags: JS基础 前端
 
 而在JS中，当真的使用未定义的变量时，浏览器会报错,提示："is not defined" 如下：
 
-![image][http://od8kqa01w.bkt.clouddn.com/not-defined.png]
+![image](http://od8kqa01w.bkt.clouddn.com/not-defined.png)
 
 ps：在JS中允许不定义变量直接对变量进行赋值，而这个变量的作用域，默认为全局作用域
 
@@ -32,7 +32,7 @@ ps：在JS中允许不定义变量直接对变量进行赋值，而这个变量�
     a = 123    //那么在整个JS文件中都可以对这个a变量进行访问,这个变量是作用在window对象上的
 ```
 
-![image][http://od8kqa01w.bkt.clouddn.com/allscope.png]
+![image](http://od8kqa01w.bkt.clouddn.com/allscope.png)
 
 2.JS中变量的作用域问题：
 
@@ -42,7 +42,7 @@ ps：在JS中允许不定义变量直接对变量进行赋值，而这个变量�
 
 举个栗子：
 
-![image][http://od8kqa01w.bkt.clouddn.com/var1.png]
+![image](http://od8kqa01w.bkt.clouddn.com/var1.png)
 
 上图中，scope变量最后输出为"local",说明在块级中，对于scope这个全局变量进行了替换，也就是说
 
@@ -50,7 +50,7 @@ ps：在JS中允许不定义变量直接对变量进行赋值，而这个变量�
 
 另一个栗子：
 
-![image][http://od8kqa01w.bkt.clouddn.com/var2.png]
+![image](http://od8kqa01w.bkt.clouddn.com/var2.png)
 
 外部可以访问到块级中的变量，说明块级作用域没有起作用。
 
@@ -88,7 +88,7 @@ JS中函数作用域是指：一个函数作为一个作用域，内层函数可
 
 一个变量提升的对比例子：
 
-![image][http://od8kqa01w.bkt.clouddn.com/￼allscope2.png]
+![image](http://od8kqa01w.bkt.clouddn.com/￼allscope2.png)
 
 
 如图例子所示：如果在函数作用域中，不对变量声明，仅仅是使用，则不会出现变量声明的覆盖。
