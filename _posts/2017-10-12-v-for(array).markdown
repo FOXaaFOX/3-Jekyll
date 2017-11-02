@@ -2,8 +2,8 @@
 layout: post
 title:  "Vue更新数组视图"
 date:   2017-10-12 22:35:00
-categories: 前端 JavaScript
-tags: Vue 前端 v-for
+categories: 前端 Vue JavaScript
+tags: Vue 前端
 ---
 
 ## 问题描述：
